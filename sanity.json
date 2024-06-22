@@ -16,7 +16,9 @@
     "@sanity/desk-tool",
     "dashboard-widget-structure-menu",
     "dashboard-widget-feed",
-    "@sanity/vision"
+    "@sanity/vision",
+    "@sanity/form-builder",
+    "@sanity/data-aspects"
   ],
   "env": {
     "development": {
