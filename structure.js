@@ -6,7 +6,8 @@ import {
 	MdDescription,
 	MdCollectionsBookmark,
 	MdInsertDriveFile,
-	MdBorderBottom
+	MdBorderBottom,
+	MdFileUpload
 } from "react-icons/md";
 
 import { FaWpforms } from "react-icons/fa";
@@ -51,5 +52,9 @@ export default () =>
 			S.listItem()
 				.title("Form Submissions")
 				.icon(FaWpforms)
-				.child(S.documentTypeList("submission").title("Form Submissions"))
+				.child(S.documentTypeList("submission").title("Form Submissions")),
+			S.listItem()
+				.title("File Uploads")
+				.icon(MdFileUpload)
+				.child(S.documentTypeList("fileUpload").title("File Uploads"))
 		]);
