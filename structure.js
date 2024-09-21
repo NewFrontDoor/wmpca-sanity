@@ -10,7 +10,7 @@ import {
 	MdFileUpload
 } from "react-icons/md";
 
-import { FaWpforms } from "react-icons/fa";
+import { FaCogs, FaWpforms } from "react-icons/fa";
 
 export default () =>
 	S.list()
@@ -56,5 +56,10 @@ export default () =>
 			S.listItem()
 				.title("File Uploads")
 				.icon(MdFileUpload)
-				.child(S.documentTypeList("fileUpload").title("File Uploads"))
+				.child(S.documentTypeList("fileUpload").title("File Uploads")),
+			S.divider(),
+			S.listItem()
+				.title("Config")
+				.icon(FaCogs)
+				.child(S.editor().title("Config").id("config").schemaType("config").documentId("global-config"))
 		]);

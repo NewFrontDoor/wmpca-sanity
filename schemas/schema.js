@@ -23,6 +23,7 @@ import videoEmbed from "./video-embed";
 import audioEmbed from "./audio-embed";
 import formSubmissions from "./form-submissions";
 import fileUpload from "./fileUpload";
+import config from "./config";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -52,6 +53,7 @@ export default createSchema({
 		videoEmbed,
 		audioEmbed,
 		formSubmissions,
-		fileUpload
+		fileUpload,
+		config
 	])
 });
