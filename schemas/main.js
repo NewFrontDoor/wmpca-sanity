@@ -4,7 +4,6 @@ export const mainType = defineType({
     name: 'main',
     title: 'Main',
     type: 'document',
-    __experimental_actions: [/* 'create', */ 'update', /* 'delete', */ 'publish'],
     fields: [
         defineField({
             title: 'Heading',

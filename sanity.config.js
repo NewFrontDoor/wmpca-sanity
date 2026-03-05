@@ -1,5 +1,6 @@
 import { defineConfig } from "sanity"
 import { structureTool } from 'sanity/structure'
+import { dashboardTool } from "@sanity/dashboard"
 import { schemaTypes } from "./schemas"
 
 export default defineConfig({
@@ -8,6 +9,12 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [
+    dashboardTool({
+      widgets: [ 
+        feedWidget(),
+        structure
+      ],
+    }),
     structureTool()
   ],
   schema: {

@@ -19,7 +19,7 @@ import { videoSeriesType } from "./video-series";
 import { videoType } from "./video";
 
 export const schemaTypes = [
-
+  audioEmbedType,
   authorType,
   blockContentType,
   blogPostType,
@@ -27,7 +27,7 @@ export const schemaTypes = [
   configType,
   fileUploadType,
   footerType,
-
+  formSubmissionType,
   formType,
   formFieldType,
   mainType,
@@ -35,7 +35,7 @@ export const schemaTypes = [
   newsletterType,
   pageType,
   speakerType,
-
+  videoEmbedType,
   videoSeriesType,
   videoType,
 ];
