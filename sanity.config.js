@@ -10,10 +10,7 @@ export default defineConfig({
 
   plugins: [
     dashboardTool({
-      widgets: [ 
-        feedWidget(),
-        structure
-      ],
+      widgets: [ ],
     }),
     structureTool()
   ],
