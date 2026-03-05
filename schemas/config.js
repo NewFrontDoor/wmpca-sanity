@@ -1,6 +1,7 @@
 import { FaCogs } from "react-icons/fa";
+import { defineField, defineType } from "sanity";
 
-export default {
+export const configType = defineType({
 	name: "config",
 	title: "Config",
 	icon: FaCogs,
@@ -43,11 +44,11 @@ export default {
 		//     }
 		//   ]
 		// },
-		{
+		defineField({
 			name: "defaultcontactemail",
 			title: "Default form submission email",
 			type: "email",
 			description: "This is email that will receive all form submissions."
-		}
+		}),
 	]
-};
+});

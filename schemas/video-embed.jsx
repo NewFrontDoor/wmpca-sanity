@@ -2,6 +2,7 @@ import React from 'react';
 import getVideoId from 'get-video-id';
 import Vimeo from '@u-wave/react-vimeo';
 import Youtube from 'react-youtube';
+import { defineField, defineType } from 'sanity';
 
 const Preview = ({value}) => {
   const {url} = value;
@@ -20,16 +21,16 @@ const Preview = ({value}) => {
   return <div>Video preview not available for this URL</div>;
 };
 
-export default {
+export const videoEmbedType = defineType({
   name: 'videoEmbed',
   type: 'object',
   title: 'Video Embed',
   fields: [
-    {
+    defineField({
       name: 'url',
       type: 'url',
       title: 'Video URL'
-    }
+    })
   ],
   preview: {
     select: {
@@ -37,4 +38,4 @@ export default {
     },
     component: Preview
   }
-};
+});

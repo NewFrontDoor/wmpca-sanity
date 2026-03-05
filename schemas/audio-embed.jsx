@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
+import { defineField, defineType } from 'sanity'; 
 
 const Preview = ({value}) => {
   const {url} = value;
@@ -11,16 +12,16 @@ const Preview = ({value}) => {
   return <div>Audio preview not available for this URL</div>;
 };
 
-export default {
+export const audioEmbedType = defineType({
   name: 'audioEmbed',
   type: 'object',
   title: 'Audio Embed',
   fields: [
-    {
+    defineField({
       name: 'url',
       type: 'url',
       title: 'Audio URL'
-    }
+    })
   ],
   preview: {
     select: {
@@ -28,4 +29,4 @@ export default {
     },
     component: Preview
   }
-};
+});
