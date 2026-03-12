@@ -1,0 +1,95 @@
+export const adminStructure = (S) => 
+  S.list()
+    .title('WMPCA Admin')
+    .items([
+      S.listItem()
+        .title('Front Page and Menu')
+        .child(
+          S.document()
+          .schemaType('main')
+        ),
+      S.listItem()
+        .title('Footer')
+        .child(
+          S.document()
+          .schemaType('footer')
+        ),
+      S.listItem()
+        .title('Blog Posts')
+        .child(
+          S.documentTypeList('blog_post')
+        ),
+      S.listItem()
+        .title('Pages')
+        .child(
+          S.documentTypeList('page')
+        ),
+      S.listItem()
+        .title('Newsletter')
+        .child(
+          S.documentTypeList('newsletter')
+        ),
+      S.listItem()
+        .title('Video')
+        .child(
+          S.documentTypeList('video')
+        ),
+      S.listItem()
+        .title('Body Content')
+        .child(
+          S.list()
+            .title('Body Content')
+            .items([
+              S.listItem()
+                .title('Forms')
+                .child(
+                  S.documentTypeList('form')
+                )
+            ])
+        ),
+      S.listItem()
+        .title('Categories')
+        .child(
+          S.list()
+            .title('Categories')
+            .items([
+              S.listItem()
+                .title('Author')
+                .child(
+                  S.documentTypeList('author')
+                ),
+              S.listItem()
+                .title('Category')
+                .child(
+                  S.documentTypeList('category')
+                ),
+              S.listItem()
+                .title('Speaker')
+                .child(
+                  S.documentTypeList('speaker')
+                ),
+              S.listItem()
+                .title('Series')
+                .child(
+                  S.documentTypeList('videoseries')
+                )
+            ])
+        ),
+      S.listItem()
+        .title('Form Submissions')
+        .child(
+          S.documentTypeList('submission')
+        ),
+      S.listItem()
+        .title('File Uploads')
+        .child(
+          S.documentTypeList('fileUpload')
+        ),
+      S.divider(),
+      S.listItem()
+        .title('Config')
+        .child(
+          S.document()
+          .schemaType('config')
+        )
+    ]);
