@@ -6,13 +6,16 @@ export const adminStructure = (S) =>
         .title('Front Page and Menu')
         .child(
           S.document()
+          .title('Front Page and Menu')
           .schemaType('main')
+          .id('global-main')
         ),
       S.listItem()
         .title('Footer')
         .child(
           S.document()
           .schemaType('footer')
+          .id('global-footer')
         ),
       S.listItem()
         .title('Blog Posts')
@@ -91,5 +94,6 @@ export const adminStructure = (S) =>
         .child(
           S.document()
           .schemaType('config')
+          .id('global-config')
         )
     ]);

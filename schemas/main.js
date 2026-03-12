@@ -4,12 +4,13 @@ export const mainType = defineType({
     name: 'main',
     title: 'Main',
     type: 'document',
+    __experimental_formPreviewTitle: false,
     fields: [
         defineField({
             title: 'Heading',
             name: 'heading',
             type: 'text',
-            rows: 2
+            rows: 2,
         }),
         defineField({
             title: 'Image Carousel',
@@ -60,5 +61,10 @@ export const mainType = defineType({
             title: 'Welcome Text',
             type: 'block-content'
         }),
-    ]
+    ],
+    preview: {
+        select: {
+            title: 'heading'
+        }
+    }
 });
