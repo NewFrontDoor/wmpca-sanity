@@ -1,16 +1,18 @@
-export default {
+import { defineField, defineType } from 'sanity';
+
+export const mainType = defineType({
     name: 'main',
     title: 'Main',
     type: 'document',
-    __experimental_actions: [/* 'create', */ 'update', /* 'delete', */ 'publish'],
+    __experimental_formPreviewTitle: false,
     fields: [
-        {
+        defineField({
             title: 'Heading',
             name: 'heading',
             type: 'text',
-            rows: 2
-        },
-        {
+            rows: 2,
+        }),
+        defineField({
             title: 'Image Carousel',
             name: 'images',
             description: 'Add images to be displayed in the slider on the front page',
@@ -20,8 +22,8 @@ export default {
                     type: 'image'
                 }
             ]
-        },
-        {
+        }),
+        defineField({
             title: 'Menus',
             name: 'menuitems',
             description: 'Add pages below to feature in the main menu',
@@ -30,8 +32,12 @@ export default {
                 {
                     type: 'object',
                     fields: [
-                        { title: 'Menu text', name: 'text', type: 'string' },
-                        {
+                        defineField({ 
+                            title: 'Menu text', 
+                            name: 'text', 
+                            type: 'string' 
+                        }),
+                        defineField({
                             title: 'Child pages',
                             name: 'childpages',
                             type: 'array',
@@ -45,15 +51,20 @@ export default {
                                     ]
                                 }
                             ]
-                        }
+                        })
                     ]
                 }
             ]
-        },
-        {
+        }),
+        defineField({
             name: 'welcome',
             title: 'Welcome Text',
             type: 'block-content'
+        }),
+    ],
+    preview: {
+        select: {
+            title: 'heading'
         }
-    ]
-};
+    }
+});

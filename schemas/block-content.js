@@ -1,4 +1,5 @@
 import { MdFileUpload, MdLink } from "react-icons/md";
+import { defineType, defineField } from "sanity";
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -10,7 +11,7 @@ import { MdFileUpload, MdLink } from "react-icons/md";
  *    type: 'blockContent'
  *  }
  */
-export default {
+export const blockContentType = defineType({
 	title: "Block Content",
 	name: "block-content",
 	type: "array",
@@ -46,12 +47,12 @@ export default {
 						name: "link",
 						type: "object",
 						fields: [
-							{
+							defineField({
 								title: "URL",
 								name: "href",
 								type: "url",
 								validation: (Rule) => Rule.uri({ scheme: ["http", "https", "mailto"] })
-							}
+							})
 						]
 					},
 					{
@@ -60,12 +61,12 @@ export default {
 						type: "object",
 						icon: MdLink,
 						fields: [
-							{
+							defineField({
 								title: "Page Reference",
 								name: "reference",
 								type: "reference",
 								to: [{ type: "page" }]
-							}
+							})
 						]
 					},
 					{
@@ -74,12 +75,12 @@ export default {
 						type: "object",
 						icon: MdFileUpload,
 						fields: [
-							{
+							defineField({
 								title: "File Reference",
 								name: "reference",
 								type: "reference",
 								to: [{ type: "fileUpload" }]
-							}
+							})
 						]
 					}
 				]
@@ -104,4 +105,4 @@ export default {
 			type: "audioEmbed"
 		}
 	]
-};
+});

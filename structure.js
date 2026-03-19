@@ -1,65 +1,130 @@
-import S from "@sanity/desk-tool/structure-builder";
 import {
-	MdAssignment,
-	MdHome,
-	MdVideoLibrary,
-	MdDescription,
-	MdCollectionsBookmark,
-	MdInsertDriveFile,
-	MdBorderBottom,
-	MdFileUpload
-} from "react-icons/md";
+  HomeIcon,
+  HashIcon,
+  BlockContentIcon,
+  SchemaIcon,
+  EnvelopeIcon,
+  VideoIcon,
+  BlockElementIcon,
+  ComponentIcon,
+  UploadIcon,
+  CogIcon,
+  ComposeIcon,
+  StackCompactIcon,
+  CommentIcon,
+} from '@sanity/icons';
 
-import { FaCogs, FaWpforms } from "react-icons/fa";
-
-export default () =>
-	S.list()
-		.title("WMPCA Admin")
-		.items([
-			S.listItem()
-				.title("Front Page and Menu")
-				.icon(MdHome)
-				.child(S.editor().title("Front Page and Menu").id("global-main").schemaType("main").documentId("global-main")),
-			S.listItem()
-				.title("Footer")
-				.icon(MdBorderBottom)
-				.child(S.editor().title("Footer").id("global-footer").schemaType("footer").documentId("global-footer")),
-			S.listItem().title("Blog Post").icon(MdAssignment).child(S.documentTypeList("blog_post").title("Blog Post")),
-			S.listItem().title("Pages").icon(MdInsertDriveFile).child(S.documentTypeList("page").title("Page")),
-			S.listItem().title("Newsletter").icon(MdDescription).child(S.documentTypeList("newsletter").title("Newsletter")),
-			S.listItem().title("Video").icon(MdVideoLibrary).child(S.documentTypeList("video").title("Video")),
-			S.listItem()
-				.title("Body content blocks")
-				.icon(MdCollectionsBookmark)
-				.child(
-					S.list()
-						.title("Body content blocks")
-						.items([S.listItem().title("Forms").child(S.documentTypeList("form").title("Forms"))])
-				),
-			S.listItem()
-				.title("Categories")
-				.icon(MdCollectionsBookmark)
-				.child(
-					S.list()
-						.title("Categories")
-						.items([
-							S.listItem().title("Author").child(S.documentTypeList("author").title("Author")),
-							S.listItem().title("Category").child(S.documentTypeList("category").title("Category")),
-							S.listItem().title("Speaker").child(S.documentTypeList("speaker").title("Speaker")),
-							S.listItem().title("Series").child(S.documentTypeList("videoseries").title("Video Series"))
-						])
-				),
-			S.listItem()
-				.title("Form Submissions")
-				.icon(FaWpforms)
-				.child(S.documentTypeList("submission").title("Form Submissions")),
-			S.listItem()
-				.title("File Uploads")
-				.icon(MdFileUpload)
-				.child(S.documentTypeList("fileUpload").title("File Uploads")),
-			S.divider(),
-			S.listItem()
-				.title("Config")
-				.icon(FaCogs)
-				.child(S.editor().title("Config").id("config").schemaType("config").documentId("global-config"))
-		]);
+export const adminStructure = (S) => 
+  S.list()
+    .title('WMPCA Admin')
+    .items([
+      S.listItem()
+        .title('Front Page and Menu')
+        .icon(HomeIcon)
+        .child(
+          S.document()
+          .title('Front Page and Menu')
+          .schemaType('main')
+          .id('global-main')
+        ),
+      S.listItem()
+        .title('Footer')
+        .icon(HashIcon)
+        .child(
+          S.document()
+          .schemaType('footer')
+          .id('global-footer')
+        ),
+      S.listItem()
+        .title('Blog Posts')
+        .icon(BlockContentIcon)
+        .child(
+          S.documentTypeList('blog_post')
+        ),
+      S.listItem()
+        .title('Pages')
+        .icon(SchemaIcon)
+        .child(
+          S.documentTypeList('page')
+        ),
+      S.listItem()
+        .title('Newsletter')
+        .icon(EnvelopeIcon)
+        .child(
+          S.documentTypeList('newsletter')
+        ),
+      S.listItem()
+        .title('Video')
+        .icon(VideoIcon)
+        .child(
+          S.documentTypeList('video')
+        ),
+      S.listItem()
+        .title('Body Content')
+        .icon(BlockElementIcon)
+        .child(
+          S.list()
+            .title('Body Content')
+            .items([
+              S.listItem()
+                .title('Forms')
+                .child(
+                  S.documentTypeList('form')
+                )
+            ])
+        ),
+      S.listItem()
+        .title('Categories')
+        .icon(ComponentIcon)
+        .child(
+          S.list()
+            .title('Categories')
+            .items([
+              S.listItem()
+                .title('Author')
+                .icon(BlockContentIcon)
+                .child(
+                  S.documentTypeList('author')
+                ),
+              S.listItem()
+                .title('Category')
+                .icon(ComponentIcon)
+                .child(
+                  S.documentTypeList('category')
+                ),
+              S.listItem()
+                .title('Speaker')
+                .icon(CommentIcon)
+                .child(
+                  S.documentTypeList('speaker')
+                ),
+              S.listItem()
+                .title('Series')
+                .icon(StackCompactIcon)
+                .child(
+                  S.documentTypeList('videoseries')
+                )
+            ])
+        ),
+      S.listItem()
+        .title('Form Submissions')
+        .icon(ComposeIcon)
+        .child(
+          S.documentTypeList('submission')
+        ),
+      S.listItem()
+        .title('File Uploads')
+        .icon(UploadIcon)
+        .child(
+          S.documentTypeList('fileUpload')
+        ),
+      S.divider(),
+      S.listItem()
+        .title('Config')
+        .icon(CogIcon)
+        .child(
+          S.document()
+          .schemaType('config')
+          .id('global-config')
+        )
+    ]);

@@ -1,5 +1,5 @@
-import { component } from "@sanity/structure/dist/dts/views";
 import React from "react";
+import { defineField, defineType } from "sanity";
 
 const Preview = ({ type, value, onChange }) => {
 	if (value) {
@@ -9,7 +9,7 @@ const Preview = ({ type, value, onChange }) => {
 				([key, value]) =>
 					`<tr><td>${key}</td> <td>${
 						typeof value === "object"
-							? `<ul>${(value as Array<string>).map((item) => `<li>${item}</li>`).join("")}</ul>`
+							? `<ul>${(value).map((item) => `<li>${item}</li>`).join("")}</ul>`
 							: value
 					}</td></tr>`
 			)
@@ -24,31 +24,32 @@ const Preview = ({ type, value, onChange }) => {
 	return <div>{value}</div>;
 };
 
-export default {
+export const formSubmissionType = defineType({
 	name: "submission",
 	title: "Form submission",
 	type: "document",
 	__experimental_actions: ["delete"],
 	fields: [
-		{
+		defineField({
 			name: "datetime",
 			title: "Submission Date/Time",
 			type: "datetime",
 			readOnly: true
-		},
-		{
+		}),
+		defineField({
 			name: "formId",
 			title: "Originating Form Id",
 			type: "string",
 			readOnly: true
-		},
-		{
+		}),
+		defineField({
 			name: "values",
 			title: "Submitted Values",
 			type: "text",
 			readOnly: true,
 			inputComponent: Preview
-		}
+		}),
+
 	],
 	preview: {
 		select: {
@@ -74,4 +75,4 @@ export default {
 			};
 		}
 	}
-};
+});
