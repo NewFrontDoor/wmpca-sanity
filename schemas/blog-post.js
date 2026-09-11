@@ -45,6 +45,11 @@ export const blogPostType = defineType({
       type: 'datetime'
     }),
     defineField({
+      name: 'brief',
+      title: 'Brief',
+      type: 'block-content',
+    }),
+    defineField({
       name: 'body',
       title: 'Body',
       type: 'block-content'
