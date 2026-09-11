@@ -9,13 +9,13 @@
 	"scripts": {
 		"start": "sanity start",
 		"test": "sanity check",
-		"dev": "sanity dev"
+		"dev": "sanity dev",
+		"deploy": "sanity deploy"
 	},
 	"keywords": [
 		"sanity"
 	],
 	"dependencies": {
-		"@sanity/cli": "^5.13.0",
 		"@sanity/components": "^2.14.0",
 		"@sanity/dashboard": "^5.0.1",
 		"@sanity/icons": "^3.7.4",
